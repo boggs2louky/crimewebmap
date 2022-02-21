@@ -1,0 +1,68 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louisville, KY Crime Stats 2021</title>
+    <link rel="stylesheet" href="./libs/v6.12.0-dist/ol.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-1">
+            <div class="column-navigation">
+                <a title="Home" id="Home" class='active'><i class="fa-thin fa-house" id='Home'></i></a>
+                <a title="Crime" id="Crime"><i class="fa-thin fa-circle-small" id="Crime"></i></a>
+                <h2>Base Layers</h2>
+                <input type="radio" name='baseLayerRadioButton' value='OSMStandard' checked>OSM Standard<br>
+                <input type="radio" name='baseLayerRadioButton' value='BingMaps'>Bing Maps<br>
+                <h2>Vector Layers</h2>
+                <input type="checkbox" name='rasterLayerCheckbox' value='Neighborhoods'>Urban Neighborhoods<br>
+                <input type="checkbox" name='rasterLayerCheckbox' value='Police Districts'>Police Districts<br>
+                <input type="checkbox" name='rasterLayerCheckbox' value='Crime Data 2021'>Crime Data 2021<br>
+                <input type="checkbox" name='rasterLayerCheckbox' value='Crime Heatmap'>Crime Heatmap <br> 
+          
+
+            </div>
+        </div>
+        <div class="grid-2">
+            <div class="column-map" id="openlayers-map">
+               <p>latitude: <span id="lat"></span><br/></p>
+               <p>longitude: <span id="lon"></span><br/></p>
+            </div>
+        </div>
+        <div class="overlay-container">
+            <span class='overlay-text' id='feature-name'></span><br>
+            <span class='overlay-text' id='feature-additional-info'></span><br>
+        </div>
+
+        <div class="grid-3">
+            <div class="column-menu" id='menu-information'>
+                <p id='crimetype'>Data Tables for Robberies and Buglaries within Jefferson County, KY for 2021</p>
+                //need to add data here from GeoJSON also need to ask about parsing crime data from the GEOJSON within the 
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+            async function getISS() {
+                const response = await fetch(api_url);
+                const data = await response.json();
+                const { latitude, longitude } = data;
+                document.getElementById('lat').textContent = latitude;
+                document.getElementById('lon').textContent = longitude;
+    }
+    getISS();
+
+    </script>
+
+    <script src="https://kit.fontawesome.com/63748f046d.js" crossorigin="anonymous"></script>
+    <script src="./libs/v6.12.0-dist/ol.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
