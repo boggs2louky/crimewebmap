@@ -18,23 +18,21 @@
                 <a title="Crime" id="Crime"><i class="fa-thin fa-circle-small" id="Crime"></i></a>
                 <h4>Base Layers</h4>
                 <input type="radio" name='baseLayerRadioButton' value='OSMStandard' checked>OSM Standard<br>
-                <input type="radio" name='baseLayerRadioButton' value='BingMaps'>Bing Maps<br>
+                <input type="radio" name='baseLayerRadioButton' value='BingMaps'>Bing Map<br>
                 <h4>Vector Layers</h4>
-                <input type="checkbox" name='rasterLayerCheckbox' value='Neighborhoods'>Urban Neighborhoods<br>
+                <input type="checkbox" name='rasterLayerCheckbox' value='Neighborhoods'>Neighborhood<br>
                 <input type="checkbox" name='rasterLayerCheckbox' value='Police Districts'>Police Districts<br>
-                <input type="checkbox" name='rasterLayerCheckbox' value='Crime Data 2021'>Crime Data 2021<br>
+                <input type="checkbox" name='rasterLayerCheckbox' value='Crime Data 2021'>Crime Data<br>
                 <input type="checkbox" name='rasterLayerCheckbox' value='Crime Heatmap'>Crime Heatmap <br>
             </div>
         </div>
 
         <div class="grid-2">
             <div class="column-map" id="openlayers-map">
-
-                <p>ISS Coordinates</p>
-                <p>latitude: <span id="lat"></span><br/></p>
-                <p>longitude: <span id="lon"></span><br/></p>
+                
             </div>
         </div>
+
         <div class="overlay-container">
             <span class='overlay-text' id='feature-name'></span><br>
             <span class='overlay-text' id='feature-additional-info'></span><br>
@@ -42,9 +40,12 @@
 
         <div class="grid-3">
             <div class="column-menu" id='menu-information'>
-                <p>The Chart JS will go in this area if I can ever figure it out!</p>
+                <p>Crime Data 2021</p>
                 <canvas id="myChart"></canvas>
 
+            <p>ISS Coordinates</p>
+            <p>lat: <span id="lat"></span></p>
+            <p>long: <span id="lon"></span></p>
             </div>
         </div>
     </div>

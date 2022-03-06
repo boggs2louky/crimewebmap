@@ -5,32 +5,44 @@
 body {
     margin: 0;
     padding: 0;
-    overflow: auto;
+    overflow: visible;
+    
 }
 
 .grid-container{
     display: grid;
     align-items: center;
-    grid-template-columns: 15vw 50vw 35vw;
-    grid-template-rows: 100vh;
-
+    grid-template-columns: 15vw 50vw 35vw;/*15vw 50vw 35vw*/
+    grid-template-rows: 100vh; /*100vh*/
+    padding: 2px;
+    
+    
 }
 
 /*Columns*/
 .grid-1{
+    
     height: 100%;
     width: 100%;
-    background-color: white;
+
 }
 
 .grid-2{
+    
     height: 100%;
     width: 100%;
+    max-width: 100%;
+    padding: 2px;
+    
 }
 
 .grid-3{
+    
     height: 100%;
     width: 100%;
+    padding: 2px;
+    
+    
 }
 
 .column-navigation a{
@@ -57,3 +69,8 @@ body {
 
 }
 
+/*@media (min-width: 300px) {
+    .grid-2 {
+            grid-template-columns: ;
+    }
+}

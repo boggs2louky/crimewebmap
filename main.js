@@ -11,7 +11,7 @@ function init() {
   // Map object
   const map = new ol.Map({
     view: new ol.View({
-      center: [-9539583.27533542, 4605188.454827129],
+      center: [-9539583.27533542, 3505188.454827129],
       zoom: 3,
       extent: [-9589203.828347333, 4568076.611899183, -9478223.868263576, 4661889.737198758]
     }),
@@ -64,6 +64,17 @@ function init() {
   }
 
   //Vector Layers
+  //Symbology for Vector Layer (Neighborhood only)
+  const fillStyle = new ol.style.Fill({
+    color: [40, 119, 247, .5]
+  })
+ 
+  //Style for Polygons edges
+  const strokeStyle = new ol.style.Stroke({
+    color: [30, 30, 31, 1],
+    width: 1.0
+  })
+
   //Neighborhoods Polygon Data 
   const neighborhoodsgeojson = new ol.layer.Vector({
     source: new ol.source.Vector({
@@ -71,7 +82,11 @@ function init() {
       format: new ol.format.GeoJSON()
     }),
     visible: false,
-    title: 'Neighborhoods'
+    title: 'Neighborhoods',
+    style: new ol.style.Style({
+      fill: fillStyle,
+      stroke: strokeStyle
+    })
   })
   //map.addLayer(neighborhoodsgeojson);
 
@@ -86,7 +101,8 @@ function init() {
 
   })
   
-     
+  
+
   //Crime Point Data 2021 
   const crimedatageojson = new ol.layer.Vector({
     source: new ol.source.Vector({
@@ -105,8 +121,8 @@ function init() {
       url: './data/HeatmapCrimeData2021.geojson',
       format: new ol.format.GeoJSON()  
     }),
-    radius: 12,
-    blur: 6,
+    radius: 6,
+    blur: 12,
     visible: false,
     title: 'Crime Heatmap'         
   })
@@ -149,13 +165,14 @@ function init() {
 
   //Vector Feature Layers Popup Logic
   map.on('click', function(e){
+    overlayLayer.setPosition(undefined);
     map.forEachFeatureAtPixel(e.pixel, function(feature, layer){
       let clickedCoordinate = e.coordinate;
       let clickedFeatureName = feature.get('NH_NAME');
-      //let clickedFeatureAdditionalInfo = feature.get('additionalinfo');
+      let clickedFeatureAdditionalInfo = feature.get('UOR_DESC');
       overlayLayer.setPosition(clickedCoordinate);
       overlayFeatureName.innerHTML = clickedFeatureName; 
-      //overlayFeaturAdditionalInfo.innerHTML = clickedFeatureAdditionalInfo;
+      overlayFeaturAdditionalInfo.innerHTML = clickedFeatureAdditionalInfo;
        
     })
   })
