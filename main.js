@@ -36,7 +36,7 @@ function init() {
   //Bing Maps
   const bingMaps = new ol.layer.Tile({
     source: new ol.source.BingMaps({
-      key: "Ao75RyMRTkOtlKghEazvIKEfaSVjC9MMfQjPJSOKOEAg23raFs03yhndHuQGvkqo",
+      key: "Put your key here",
       imagerySet: 'Aerialwithlabels'
     }),
     visible: false,
