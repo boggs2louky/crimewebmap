@@ -9,15 +9,13 @@ body {
     
 }
 
-.grid-container{
+/*.grid-container{
     display: grid;
     align-items: center;
-    grid-template-columns: 15vw 50vw 35vw;/*15vw 50vw 35vw*/
-    grid-template-rows: 100vh; /*100vh*/
-    padding: 2px;
-    
-    
-}
+    grid-template-columns: 15vw 50vw 35vw; 
+    grid-template-rows: 100vh; 
+    padding: 2px; 
+} */
 
 /*Columns*/
 .grid-1{
@@ -28,7 +26,7 @@ body {
 }
 
 .grid-2{
-    
+        
     height: 100%;
     width: 100%;
     max-width: 100%;
@@ -69,8 +67,14 @@ body {
 
 }
 
-/*@media (min-width: 300px) {
-    .grid-2 {
-            grid-template-columns: ;
+@media only screen and (min-width: 1200px) {
+    .grid-container{
+        display: grid;
+        align-items: center;
+        grid-template-columns: 15% 50% 35%; /*15vw 50vw 35vw*/
+        grid-template-rows: 100% 100% 100%; /*100vh*/
+        padding: 2px;
+        
+        
     }
 }
