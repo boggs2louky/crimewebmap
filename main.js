@@ -66,7 +66,7 @@ function init() {
   //Vector Layers
   //Symbology for Vector Layer (Neighborhood only)
   const fillStyle = new ol.style.Fill({
-    color: [40, 119, 247, .5]
+    color: [255, 0, 0, .5]
   })
  
   //Style for Polygons edges
