@@ -64,16 +64,18 @@ function init() {
   }
 
   //Vector Layers
+ 
+
   //Symbology for Vector Layer (Neighborhood only)
   const fillStyle = new ol.style.Fill({
-    color: [255, 0, 0, .5]
-  })
+    color: [128, 128, 128, .5]
+  }) 
  
   //Style for Polygons edges
-  const strokeStyle = new ol.style.Stroke({
+   const strokeStyle = new ol.style.Stroke({
     color: [30, 30, 31, 1],
     width: 1.0
-  })
+  }) 
 
   //Neighborhoods Polygon Data 
   const neighborhoodsgeojson = new ol.layer.Vector({
@@ -101,8 +103,53 @@ function init() {
 
   })
   
-  
+   //Styling of Crime Data Points
 
+   //Burglary Point Style
+   /*const burglaryCrimeStyle = new ol.style.Style({
+     fill: new ol.style.Fill({
+       color: [255, 0, 0, .5]
+     })
+   }) */
+
+   //Robbery Point Style
+   /*const robberyCrimeStyle = new ol.style.Style({
+    fill: new ol.style.Fill({
+      color: [0, 0, 204, .5]
+    })
+  }) */
+
+   // Point Style
+   const pointStyle = new ol.style.Style({
+     image: new ol.style.Circle({
+       fill: new ol.style.Fill({
+         color: [255, 0, 0, 1]
+       }),
+       radius: 4,
+       stroke: new ol.style.Stroke({
+         color: [30, 30, 31, 1],
+         width: 1
+       }) 
+     })
+   })
+
+   const CrimePointsStyle = function(feature){
+    let geometryType = feature.getGeometry().getType();
+    let crimeData = feature.get('UOR_DESC');
+
+    if(geometryType === 'Point') {
+      feature.setStyle([pointStyle]) 
+
+      /*if(crimeData === 'Burglary') {
+        feature.setStyle([burglaryCrimeStyle])
+      };
+
+      if(crimeData === 'Robbery') 
+        feature.setStyle([robberyCrimeStyle]) */
+      } 
+    } 
+
+   
   //Crime Point Data 2021 
   const crimedatageojson = new ol.layer.Vector({
     source: new ol.source.Vector({
@@ -110,7 +157,8 @@ function init() {
       format: new ol.format.GeoJSON()
     }),
     visible: false,
-    title: 'Crime Data 2021'
+    title: 'Crime Data 2021',
+    style: CrimePointsStyle
   })
 
   //map.addLayer(crimedatageojson);
@@ -180,3 +228,4 @@ function init() {
 
 
 }
+

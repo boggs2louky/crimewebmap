@@ -17,7 +17,7 @@ body {
     padding: 2px; 
 } */
 
-/*Columns*/
+Columns
 .grid-1{
     
     height: 100%;
@@ -30,7 +30,8 @@ body {
     height: 100%;
     width: 100%;
     max-width: 100%;
-      
+    padding: 2px;
+    
 }
 
 .grid-3{
@@ -66,46 +67,102 @@ body {
 
 }
 
+/*@media only screen and (min-width: 1200px) {
+    .grid-container{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 15vw 50vw 35vw; 
+    grid-template-rows: 100vh, 100vh, 100vh; 
+    padding: 2px; 
+} 
+
+Columns
+.grid-1{
+    
+    height: 100%;
+    width: 100%;
+
+}
+
+.grid-2{
+        
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    padding: 2px;
+    
+}
+
+.grid-3{
+    
+    height: 100%;
+    width: 100%;
+    padding: 2px;
+    
+    
+}
+
+.column-navigation a{
+    display: block;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+.column-navigation a:hover{
+    background-color: black;
+} 
+
+.active{
+    background-color: #777;
+}
+
+.column-menu{
+    height: 100%;
+    width: 100%;
+    padding: 1px;
+    background-color: white;
+
+}
+
+}*/
+
 @media only screen and (min-width: 768px) {
     .grid-container{
         display: grid;
         align-items: center;
         grid-template-columns: 15vw 50vw 35vw; 
-        grid-template-rows: 100vh;
-        gap: 10px;
-        }
-        .grid-1{
-    
-            height: 100%;
-            width: 100%;
-        
-        }
-        
-        .grid-2{
-                
-            height: 100%;
-            width: 100%;
-            max-width: 100%;
-                        
-        }
-        
-        .grid-3{
-            
-            height: 50%;
-            width: 100%;
-            
-            
-            
-        }
+        grid-template-rows: 100vh; 
+        gap: 5px;
+          
     }
 
-/*@media only screen and (min-width: 1200px) {
-    .grid-container{
-        display: grid;
-        align-items: center;
-        grid-template-columns: 15% 50% 35%; 15vw 50vw 35vw
-        grid-template-rows: 100% 100% 100%; 100vh 
+    .grid-1{
+        display: block;
+        height: 100%;
+        width: 100%;
+        
+    
+    }
+    
+    .grid-2{
+            
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
         
         
     }
-}*/
+    
+    .grid-3{
+        
+        height: 100%;
+        width: 100%;
+       
+        
+        
+    }
+    
+    
+}
